@@ -1,0 +1,8 @@
+# nix
+result
+
+# cmake
+build
+
+# clangd
+.cache
