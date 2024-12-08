@@ -18,7 +18,7 @@ void greet_maybe(std::optional<std::string> const &maybe) {
     }
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     auto program = cli::program<greet_one, greet_many, greet_maybe>();
     program(argc, argv);
 }

@@ -12,9 +12,8 @@ void optoptopt(std::optional<std::optional<std::optional<int>>> const &in) {
     if (in.has_value()) {
         if ((*in).has_value()) {
             if ((**in).has_value()) {
-                    std::println("Value(Value(Value({})))", ***in);
-                }
-            else {
+                std::println("Value(Value(Value({})))", ***in);
+            } else {
                 std::println("Value(Value(Nullopt))");
             }
         } else {

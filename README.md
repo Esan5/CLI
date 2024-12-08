@@ -4,6 +4,61 @@
 
 `cli` is an **experimental** header only library for simple command line programs written in C++. It presents a look at what modern reflection based libraries may look like in C++26. It's designed for ease of use and modeled off of python's `argparse`.
 
+Simply pass the functions you want to expose on the command line and get a command line interface for each:
+
+
+```cc
+// main.cc
+
+void add(int a, int b) {
+    std::println("{} + {} = {}", a, b, a + b);
+}
+
+void sub(int a, int b) {
+    std::println("{} - {} = {}", a, b, a - b);
+}
+
+...
+
+int main(int argc, char *argv[]) {
+    auto program = cli::program<add, sub>(); // pass functions as template parameters
+    program(argc, argv);
+}
+```
+
+CLI will automatically generate help messages:
+
+```bash
+$ a.out --help
+
+usage: a.out [-h, --help] {sub,add} ...
+
+
+commands:
+    {sub,add}
+
+options:
+    -h, --help show this message and exit
+
+$ a.out add --help
+
+usage: a.out add [-h, --help] --v1 v1 --v2 v2
+
+options:
+    -h, --help  show this message and exit
+    --v1        int
+    --v2        int
+```
+
+And run the correct function:
+
+```bash
+$ a.out add --v1 1 --v2 2
+1 + 2 = 3
+$ a.out sub --v1 1 --v2 2
+1 - 2 = -1
+```
+
 ## Quickstart
 
 ### Building clang-p2996
@@ -34,13 +89,13 @@ build/e01 --help
 
 To test the library with you own code just clone the repo somewhere on you inlude path and include `cli.h`. In you main function, initialize a program with:
 
-```
+```cc
 auto program = cli::program<my_func1, my_func2, ...>();
 ```
 
 And pass `argc` and `argv` as parameters:
 
-```
+```cc
 program(argc, argv);
 ```
 
