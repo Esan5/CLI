@@ -2,7 +2,7 @@
 
 ## What is it?
 
-`cli` is a header only library for simple command line programs written in C++. It presents a look at what modern reflection based libraries may look like in C++26. It's designed for ease of use and modeled off of python's `argparse`.
+`cli` is an **experimental** header only library for simple command line programs written in C++. It presents a look at what modern reflection based libraries may look like in C++26. It's designed for ease of use and modeled off of python's `argparse`.
 
 ## Quickstart
 
@@ -53,3 +53,5 @@ $ build/a.out my_func1 --my_opt opt ...
 ```
 
 The names of the function parameters will be used as command line options which get parsed and passed to the function as parameters. Currently supported parameter types are string types and numerics as well as optionals and vectors. You can write a custom verifier and parser to enable user defined types to be passed as command line arguments.
+
+See `examples/` for more details.
