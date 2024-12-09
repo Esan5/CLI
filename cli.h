@@ -9,7 +9,6 @@
 
 #include <experimental/meta>
 
-#include "options/program_options.h"
 #include "p2996/expand.h"
 #include "p2996/struct_to_tuple.h"
 #include "parsers/parse.h"
@@ -109,6 +108,13 @@ options:
 
   private:
     static constexpr auto info = std::meta::reflect_function(*F);
+};
+
+struct program_options_t {
+    std::string name;
+    std::string usage;
+    std::string description;
+    std::string epilog;
 };
 
 template <auto... Fs>
