@@ -10,12 +10,12 @@ Simply pass the functions you want to expose on the command line and get a comma
 ```cc
 // main.cc
 
-void add(int a, int b) {
-    std::println("{} + {} = {}", a, b, a + b);
+void add(int v1, int v2) {
+    std::println("{} + {} = {}", v1, v2, v1 + v2);
 }
 
-void sub(int a, int b) {
-    std::println("{} - {} = {}", a, b, a - b);
+void sub(int v1, int v2) {
+    std::println("{} - {} = {}", v1, v2, v1 - v2);
 }
 
 ...

@@ -5,7 +5,7 @@
 #include <string_view>
 
 #include "cli/util.h"
-#include "parsers/numeric.h"
+#include "cli/parsers/numeric.h"
 
 namespace cli {
 
